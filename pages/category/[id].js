@@ -1,11 +1,10 @@
-import PostsList from "../../components/posts/postsList.component";
+import Category from "../../components/category.component.js";
 
-function Category({categoryInformations, headlines})
+function CategoryById({categoryInformations, headlines})
 {
 	return (
 		<div className="container relative mx-auto md:px-32 p-4">
-			<p className="text-3xl text-gray font-bold py-4 ">Nos derniers articles - {categoryInformations.categoryName}</p>
-			{(headlines && headlines.articles) && <PostsList posts={headlines.articles}/>}
+			{(categoryInformations.categorySearch && headlines.articles) && <Category categoryTitle={"Nos derniers articles - " + categoryInformations.categoryName} posts={headlines.articles} />}
 		</div>
 	);
 }
@@ -81,4 +80,5 @@ export async function getStaticProps({params})
 	  props: {headlines, categoryInformations},
 	};
 }
-export default Category;
+
+export default CategoryById;

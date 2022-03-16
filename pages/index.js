@@ -1,5 +1,7 @@
 // COMPONENTS
-import PostsList from '../components/posts/postsList.component.js';
+
+import Category from "../components/category.component";
+
 
 function Home({headlines})
 {
@@ -15,13 +17,12 @@ function Home({headlines})
 					</div>
 				</>
 			}
-			<p className="text-3xl text-gray font-bold py-4 ">Nos derniers articles</p>
-			<PostsList posts={headlines.articles}/>
+			{headlines.articles && <Category categoryTitle="Nos derniers articles" posts={headlines.articles}/>}
 		</div>
 	)
 }
 
-export async function getStaticProps(context)
+export async function getStaticProps()
 {
 	const API_KEY = process.env.REACT_APP_API_KEY;
 	const headlines = await fetch('https://newsapi.org/v2/top-headlines?country=fr&apiKey=' + API_KEY).then(res => res.json());
