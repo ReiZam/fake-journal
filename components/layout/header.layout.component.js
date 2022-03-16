@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function useWindowDimension()
@@ -34,7 +35,7 @@ function Header()
 		<nav className="relative py-6 bg-white">
 			<div className="container mx-auto px-4 md:px-0 flex justify-between md:items-center space-y-4 flex-col">
 				<div className="flex flex-row justify-between">
-					<a className="flex flex-row cursor-pointer">
+					<a href="/" className="flex flex-row cursor-pointer">
 						<p className="text-3xl font-thin">fake journal</p>
 						<p className="text-3xl font-regular hover:text-yellow">.</p>
 					</a>
@@ -47,19 +48,19 @@ function Header()
 					(menuOpen || (dimension.width >= 768)) &&
 					<ul className="flex md:space-x-16 md:flex-row flex-col">
 						<li className="cursor-pointer">
-							<a className="text-lg font-bold hover:text-yellow">Politique</a>
+							<a href="/category/politics" className="text-lg font-bold hover:text-political_color">Politique</a>
 						</li>
 						<li className="cursor-pointer">
-							<a className="text-lg font-bold hover:text-yellow">Environnement</a>
+							<a href="/category/environment" className="text-lg font-bold hover:text-environment_color">Environnement</a>
 						</li>
 						<li className="cursor-pointer">
-							<a className="text-lg font-bold hover:text-yellow">Cinéma</a>
+							<a href="/category/movie" className="text-lg font-bold hover:text-cinema_color">Cinéma</a>
 						</li>
 						<li className="cursor-pointer">
-							<a className="text-lg font-bold hover:text-yellow">Musique</a>
+							<a href="/category/music" className="text-lg font-bold hover:text-music_color ">Musique</a>
 						</li>
 						<li className="cursor-pointer">
-							<a className="text-lg font-bold hover:text-yellow">Lifestyle</a>
+							<a href="/category/lifestyle" className="text-lg font-bold hover:text-lifestyle_color">Lifestyle</a>
 						</li>
 					</ul>
 				}

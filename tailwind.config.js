@@ -6,7 +6,12 @@ module.exports = {
 	theme: {
 		colors: {
 			backgroundColor: '#F5F6F8',
-			yellow: '#ffbd01',
+			global_color: '#2c3e50',
+			cinema_color: '#f39c12',
+			environment_color: '#27ae60',
+			political_color: '#3498db',
+			music_color: '#9b59b6',
+			lifestyle_color: '#e74c3c',
 			black: '#000000',
 			white: '#ffffff'
 		},
