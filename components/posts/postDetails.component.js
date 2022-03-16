@@ -1,4 +1,4 @@
-function PostDetails({post, openPost})
+function PostDetails({post, closePost})
 {
 	return (
 		<div className="flex justify-between flex-col p-4 space-y-4">
@@ -6,7 +6,7 @@ function PostDetails({post, openPost})
 			<p className="text-xl font-medium">{post.title}</p>
 			<p className="text-sm">{post.description}...</p>
 			<button className="bg-black text-white rounded-lg" onClick={() => {
-				openPost(null);
+				closePost();
 			}}>Fermer</button>
 		</div>
 	);
