@@ -1,3 +1,4 @@
+// COMPONENTS
 import Category from "../../components/category.component.js";
 
 function CategoryById({categoryInformations, headlines})
