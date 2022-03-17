@@ -1,4 +1,4 @@
-# fake-journal
+# fake-journal (https://fake-journal.kmazier.fr/)
 
 A VERY small journal website working with News API 
 
