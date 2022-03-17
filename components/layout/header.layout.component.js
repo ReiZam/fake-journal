@@ -66,7 +66,6 @@ function Header()
 						</li>
 					</ul>
 				}
-				
 			</div>
 		</nav>
 	);

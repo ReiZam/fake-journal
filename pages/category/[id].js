@@ -1,15 +1,6 @@
 // COMPONENTS
 import Category from "../../components/category.component.js";
 
-function CategoryById({categoryInformations, headlines})
-{
-	return (
-		<div className="container relative mx-auto md:px-32 p-4">
-			{(categoryInformations.categorySearch && headlines.articles) && <Category categoryTitle={"Nos derniers articles - " + categoryInformations.categoryName} posts={headlines.articles} />}
-		</div>
-	);
-}
-
 function getCategoryInformationsById(id)
 {
 	switch(id)
@@ -47,6 +38,16 @@ function getCategoryInformationsById(id)
 	}
 }
 
+function CategoryById({categoryInformations, headlines})
+{
+	return (
+		<div className="container relative mx-auto md:px-32 p-4">
+			{(categoryInformations.categorySearch && headlines.articles) && <Category categoryTitle={"Nos derniers articles - " + categoryInformations.categoryName} posts={headlines.articles} />}
+		</div>
+	);
+}
+
+
 export async function getStaticPaths() {
 	return {
 		paths: [
@@ -77,6 +78,9 @@ export async function getStaticProps({params})
 	const categoryInformations = getCategoryInformationsById(params.id);
 	const headlines = categoryInformations.categorySearch != null ? await fetch('https://newsapi.org/v2/everything?q=' + categoryInformations.categorySearch + '&apiKey=' + API_KEY).then(res => res.json()) : undefined;
 	
+	if (headlines && headlines.articles)
+		headlines.articles = headlines.articles.filter(value => value.urlToImage != null);
+
 	return {
 	  props: {headlines, categoryInformations},
 	};

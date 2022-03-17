@@ -26,6 +26,9 @@ export async function getStaticProps()
 	const API_KEY = process.env.REACT_APP_API_KEY;
 	const headlines = await fetch('https://newsapi.org/v2/top-headlines?country=fr&apiKey=' + API_KEY).then(res => res.json());
 	
+	if (headlines && headlines.articles)
+		headlines.articles = headlines.articles.filter(value => value.urlToImage != null);
+	
 	return {
 	  props: {headlines},
 	};
